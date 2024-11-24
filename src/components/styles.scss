@@ -6,3 +6,7 @@
   padding: 5px;
   height: 100vh;
 }
+.map-wrapper {
+  height: calc(var(--vh, 1vh) * 100);
+  display: grid;
+}

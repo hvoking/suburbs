@@ -8,7 +8,7 @@ export const Header = () => {
 			<img 
 				className="logo-wrapper"
 				src={process.env.PUBLIC_URL + '/static/logos/logo.png'}
-				alt="logo-q8" 
+				alt="logo-leverage" 
 			/>
 			<div></div>
 		</div>

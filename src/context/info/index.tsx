@@ -12,11 +12,13 @@ export const useInfo = () => {
 export const InfoProvider = ({children}: any) => {
 	const [ suggestions, setSuggestions ] = useState<any>(null);
 	const [ popupInfo, setPopupInfo ] = useState<any>(null);
+	const [ currentId, setCurrentId ] = useState<number | null>(null);
 
 	return (
 		<InfoContext.Provider value={{
 			suggestions, setSuggestions,
 			popupInfo, setPopupInfo,
+			currentId, setCurrentId
 		}}>
 			{children}
 		</InfoContext.Provider>

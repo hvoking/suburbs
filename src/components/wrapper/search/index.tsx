@@ -8,8 +8,6 @@ import { Cross } from './cross';
 import './styles.scss';
 
 // Context imports
-import { useGeo } from 'context/geo';
-import { useGoogleSearchApi } from 'context/api/google/search';
 import { suburbs } from 'context/info/suburbs';
 
 export const Search = () => {
@@ -21,11 +19,6 @@ export const Search = () => {
 	const [ suggestionIndex, setSuggestionIndex ] = useState(0);
 	const [ suggestionsActive, setSuggestionsActive ]= useState(false);
 
-	const onFocus = () => {
-		setSuggestions(Object.keys(suburbs));
-		setSuggestionsActive(true);
-	}
-	
 	const handleChange = (e: any) => {
 		const query = e.target.value.toLowerCase();
 		setSearchText(query);
@@ -65,15 +58,6 @@ export const Search = () => {
 			setSearchText(cityValue);
 			setSuggestionIndex(0);
 			setSuggestionsActive(false);
-
-			// const cityName = cities[cityValue];
-			// setCityName(cityName);
-			
-			// const selectedCity: any = suburbs[cityName];
-			// setPlaceCoordinates({ 
-			// 	longitude: selectedCity.longitude, 
-			// 	latitude: selectedCity.latitude 
-			// });
 		}
 		// escape
 		else if (e.keyCode === 27) {
@@ -95,13 +79,6 @@ export const Search = () => {
 		
 		setSuggestionsActive(false)
 
-		const selectedCity: any = suburbs[suggestion];
-
-		// setCityName(cityName);
-		// setPlaceCoordinates({ 
-		// 	longitude: selectedCity.longitude, 
-		// 	latitude: selectedCity.latitude 
-		// });
 	};
 
 	return (
