@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo, useContext, createContext } from 'react';
 
 // Context imports
 import { useGeo } from 'context/geo';
-import { useLimits } from 'context/limits';
+import { useInfo } from 'context/info';
 
 // Third-party imports
 import * as turf from '@turf/turf';
@@ -18,7 +18,7 @@ export const useMask = () => {
 
 export const MaskProvider = ({children}: any) => {
 	const { mapRef } = useGeo();
-	const { activeGeometry } = useLimits();
+	const { activeGeometry } = useInfo();
 
 	const [ mapFeatures, setMapFeatures ] = useState([]);
 	const [ activeFeatures, setActiveFeatures ] = useState(false);

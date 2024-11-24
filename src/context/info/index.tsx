@@ -13,12 +13,14 @@ export const InfoProvider = ({children}: any) => {
 	const [ suggestions, setSuggestions ] = useState<any>(null);
 	const [ popupInfo, setPopupInfo ] = useState<any>(null);
 	const [ currentId, setCurrentId ] = useState<number | null>(null);
+	const [ activeGeometry, setActiveGeometry ] = useState<any>(null);
 
 	return (
 		<InfoContext.Provider value={{
 			suggestions, setSuggestions,
 			popupInfo, setPopupInfo,
-			currentId, setCurrentId
+			currentId, setCurrentId,
+			activeGeometry, setActiveGeometry
 		}}>
 			{children}
 		</InfoContext.Provider>

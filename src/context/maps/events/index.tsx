@@ -4,7 +4,6 @@ import { useCallback, useContext, createContext } from 'react';
 // App imports
 import { useGeo } from 'context/geo';
 import { useInfo } from 'context/info';
-import { useLimits } from 'context/limits';
 
 const MapEventsContext: React.Context<any> = createContext(null);
 
@@ -16,8 +15,7 @@ export const useMapEvents = () => {
 
 export const MapEventsProvider = ({children}: any) => {
 	const { mapRef } = useGeo();
-	const { setPopupInfo, setCurrentId } = useInfo();
-	const { setActiveGeometry } = useLimits();
+	const { setPopupInfo, setCurrentId, setActiveGeometry } = useInfo();
 
 	const onClick = useCallback((event: any) => {
 		const features = mapRef.current?.queryRenderedFeatures(event.point, {

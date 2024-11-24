@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 
 // Context imports
-import { useMask } from 'context/mask';
+import { useMask } from 'context/maps/mask';
 
 // Third-party imports
 import { Source, Layer } from 'react-map-gl';
