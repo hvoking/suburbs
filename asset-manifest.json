@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/suburbs/static/css/main.878a88f3.css",
-    "main.js": "/suburbs/static/js/main.2007927e.js",
+    "main.js": "/suburbs/static/js/main.994b06ee.js",
     "static/js/879.f39b6e05.chunk.js": "/suburbs/static/js/879.f39b6e05.chunk.js",
     "index.html": "/suburbs/index.html",
     "main.878a88f3.css.map": "/suburbs/static/css/main.878a88f3.css.map",
-    "main.2007927e.js.map": "/suburbs/static/js/main.2007927e.js.map",
+    "main.994b06ee.js.map": "/suburbs/static/js/main.994b06ee.js.map",
     "879.f39b6e05.chunk.js.map": "/suburbs/static/js/879.f39b6e05.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.878a88f3.css",
-    "static/js/main.2007927e.js"
+    "static/js/main.994b06ee.js"
   ]
 }
