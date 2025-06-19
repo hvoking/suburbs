@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { useMask } from 'context/maps/mask';
 
 // Third-party imports
-import { Source, Layer } from 'react-map-gl';
+import { Source, Layer } from 'react-map-gl/mapbox';
 
 export const Mask = () => {
   const { maskProperties } = useMask();

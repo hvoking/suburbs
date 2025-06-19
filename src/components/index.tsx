@@ -1,3 +1,6 @@
+// React imports
+import { useState } from 'react';
+
 // App imports
 import { Tiles } from './tiles';
 import { CustomPopup } from './popup';
@@ -12,14 +15,17 @@ import { useInfo } from 'context/info';
 import { useMapEvents } from 'context/maps/events';
 
 // Third-party imports
-import { Map } from 'react-map-gl';
+import { Map } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const Main = () => {
-	const { viewport, mapRef, basemap } = useGeo();
+	const [ isMapLoaded, setIsMapLoaded ] = useState(false);
+	const { viewport, mapRef, mapStyle } = useGeo();
 	const { popupInfo, setPopupInfo, currentId } = useInfo();
 
 	const { onClick } = useMapEvents();
+
+	const onLoad = () => setIsMapLoaded(true);
 
 	return (
 		<Wrapper>
@@ -28,19 +34,22 @@ export const Main = () => {
 					ref={mapRef}
 					initialViewState={viewport}
 					mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
-					mapStyle={basemap}
+					mapStyle={mapStyle}
 					preserveDrawingBuffer={true}
 					onClick={onClick}
+					onLoad={onLoad}
 				>
-					<Tiles currentId={currentId}/>
-					{popupInfo && 
-						<CustomPopup 
-							popupInfo={popupInfo} 
-							setPopupInfo={setPopupInfo}
-						/>
-					}
-					<Points/>
-					<Mask/>
+					{isMapLoaded && <>
+						<Tiles currentId={currentId}/>
+						{popupInfo && 
+							<CustomPopup 
+								popupInfo={popupInfo} 
+								setPopupInfo={setPopupInfo}
+							/>
+						}
+						<Points/>
+						<Mask/>
+					</>}
 				</Map>
 			</div>
 		</Wrapper>

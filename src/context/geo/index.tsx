@@ -15,7 +15,7 @@ export const useGeo = () => {
 export const GeoProvider = ({children}: any) => {
 	const mapRef = useRef<any>();
 	const [ viewport, setViewport ] = useState(Locations.au);
-	const [ basemap, setBasemap ] = useState("mapbox://styles/hvoking/clygh6abe01fv01qrd3y0105g");
+	const [ mapStyle, setMapStyle ] = useState("mapbox://styles/hvoking/cm6k7wwbu00cw01ryeqdb9fik");
 	const [ placeId, setPlaceId ] = useState<any>(null);
 
 	const { latitude, longitude } = viewport;
@@ -39,9 +39,10 @@ export const GeoProvider = ({children}: any) => {
 
 	return (
 		<GeoContext.Provider value={{
+			mapRef, 
 			viewport, setViewport, 
 			marker, setMarker,
-			mapRef, basemap, setBasemap,
+			mapStyle, setMapStyle,
 			placeId, setPlaceId
 		}}>
 			{children}
