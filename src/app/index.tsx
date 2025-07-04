@@ -1,9 +1,14 @@
 // App imports
 import { Header } from './header';
 import { Search } from './search';
+import { Maps } from './maps';
 import './styles.scss';
 
-let vh = window.innerHeight * 0.01;
+// Context imports
+import { ContextProvider } from 'context';
+
+export const App = () => {
+	let vh = window.innerHeight * 0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 	window.addEventListener('resize', () => {
@@ -11,16 +16,15 @@ let vh = window.innerHeight * 0.01;
 	  document.documentElement.style.setProperty('--vh', `${vh}px`);
 	});
 
-export const Wrapper = ({ children }: any) => {
 	return (
-		<div className="wrapper">
-			<Header/>
-			<div className="map-wrapper">
+		<ContextProvider>
+			<div className="wrapper">
+				<Header/>
 				<Search/>
-				{children}
+				<Maps/>
 			</div>
-		</div>
+		</ContextProvider>
 	)
 }
 
-Wrapper.displayName="Wrapper";
+App.displayName="App";

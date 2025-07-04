@@ -24,7 +24,7 @@ export const Points = () => {
 
 	const url = getTilesUrl(tableSchema, tableName)
 
-  	const layers = styleData.map((style: any, index: number) => {
+  	const layers = styleData?.map((style: any, index: number) => {
 		return (
 			<Layer key={index} {...style}/>
 		)
